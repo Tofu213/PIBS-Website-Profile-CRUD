@@ -1,0 +1,601 @@
+/* ==========================
+   THEME VARIABLES
+   ========================== */
+:root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --glow-color: rgba(0, 123, 255, 0.7);
+    --dark-bg: #18181b;
+    --card-bg: #222429;
+    --card-soft: #2d3036;
+    --text-light: #f4f4f9;
+    --text-secondary: #b3b3b3;
+    --border-color: #3f3f46;
+}
+
+/* RESET & GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;           /* supaya tidak ada scroll horizontal */
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+/* WRAPPER */
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================
+   HEADER (100%)
+   ========================== */
+
+header {
+    background: linear-gradient(120deg, var(--primary-color), #00a2ff);
+    padding: 1.7rem 1.9rem;
+    box-shadow: 0 4px 20px var(--glow-color);
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.header-profile-pic {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.95);
+    object-fit: cover;
+    box-shadow: 0 0 18px rgba(0,0,0,0.5);
+    background: #fff;
+}
+
+.header-text h1 {
+    font-family: "Lato", system-ui;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.header-text p {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+}
+
+/* ==========================
+   MAIN: NAV + SECTION + ASIDE
+   ========================== */
+
+.main-content {
+    width: 100%;
+    max-width: 1280px;
+    margin: 1.8rem auto 2.2rem;
+    padding: 0 1.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.7rem;
+}
+
+/* NAV di kiri (smartphone: full width, desktop: kolom kiri) */
+nav {
+    flex: 1 1 100%;
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li + li {
+    margin-top: 0.4rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-light);
+    background-color: #262a31;
+    border: 1px solid transparent;
+    transition: background 0.2s, transform 0.1s, border-color 0.2s;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+nav a:hover {
+    background-color: #333740;
+    transform: translateX(2px);
+}
+
+nav a.active {
+    background: linear-gradient(120deg, var(--primary-color), #00a2ff);
+    border-color: rgba(0, 123, 255, 0.9);
+    box-shadow: 0 0 14px var(--glow-color);
+}
+
+/* SECTION & ASIDE default (HP / tablet portrait: bertumpuk) */
+section {
+    flex: 1 1 100%;
+}
+
+aside {
+    flex: 1 1 100%;
+}
+
+/* ==========================
+   KONTEN SECTION (KARTU)
+   ========================== */
+
+.page-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .4s ease, transform .4s ease;
+    background-color: var(--card-bg);
+    padding: 1.5rem 1.9rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    border: 1px solid var(--border-color);
+    margin-top: 0.2rem;
+}
+
+.page-content.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+}
+
+.page-content h2 + hr {
+    border: none;
+    border-top: 2px solid #3b3f46;
+    margin-bottom: 1rem;
+}
+
+/* ==========================
+   ASIDE (KARTU HOBI)
+   ========================== */
+
+.info-card {
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    border: 1px solid var(--border-color);
+    margin-top: 0.2rem;
+}
+
+.info-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.4rem;
+}
+
+.info-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.info-card i {
+    color: var(--primary-color);
+}
+
+/* ==========================
+   FOOTER (100%)
+   ========================== */
+
+footer {
+    border-top: 1px solid #111;
+    padding: 1rem 1.5rem;
+    background-color: #101017;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.footer-content a {
+    color: var(--primary-color);
+}
+
+/* ==========================
+   KONTEN KHUSUS PROFIL
+   ========================== */
+
+.biodata-grid p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+}
+
+.timeline-item {
+    margin-bottom: 0.9rem;
+}
+
+.project-card {
+    margin-bottom: 0.7rem;
+    background-color: var(--card-soft);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    background-color: var(--card-soft);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.skills-list i {
+    color: #4ade80;
+}
+
+/* Switcher profil (dropdown kanan atas) */
+.user-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999;
+    background: rgba(0,0,0,0.7);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.user-switcher select {
+    border-radius: 999px;
+    border: none;
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+/* ==========================
+   ADMIN CRUD (admin_profile.php)
+   ========================== */
+
+.crud-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 900px) {
+    .crud-grid {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.crud-card {
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    padding: 1.1rem 1.3rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+    border: 1px solid var(--border-color);
+    flex: 1;
+}
+
+.crud-card h3 {
+    margin-bottom: 0.6rem;
+}
+
+.crud-label {
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.15rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.crud-input {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: #1f2125;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.crud-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--glow-color);
+}
+
+.crud-button {
+    margin-top: 0.9rem;
+    padding: 0.55rem 1.4rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px var(--glow-color);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.crud-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* tabel CRUD */
+
+.crud-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.crud-table th,
+.crud-table td {
+    padding: 0.5rem 0.6rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.crud-table th {
+    background-color: #11141a;
+    color: var(--text-light);
+}
+
+.crud-table tr:nth-child(even) {
+    background-color: #262a31;
+}
+
+.crud-table tr:hover {
+    background-color: #313640;
+}
+
+.crud-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 0.4rem;
+    font-weight: 600;
+}
+
+.crud-link.danger {
+    color: #ff6b6b;
+}
+
+.crud-link:hover {
+    text-decoration: underline;
+}
+
+/* ==========================
+   RESPONSIVE BREAKPOINTS
+   ========================== */
+
+/* Tablet landscape: nav 25%, section 75%, aside full bawah */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .main-content {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        flex: 0 0 25%;
+    }
+
+    section {
+        flex: 0 0 75%;
+    }
+
+    aside {
+        flex: 0 0 100%;
+    }
+}
+
+/* Desktop: nav – section – aside sejajar, pas tanpa sisa */
+@media (min-width: 1200px) {
+    .main-content {
+        flex-wrap: nowrap;
+    }
+
+    nav {
+        flex: 0 0 26%;
+    }
+
+    section {
+        flex: 0 0 48%;
+    }
+
+    aside {
+        flex: 0 0 26%;
+    }
+}
+
+/* Smartphone kecil: lebih rapat */
+@media (max-width: 600px) {
+    header {
+        padding: 1.3rem 1.2rem;
+    }
+
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .header-profile-pic {
+        width: 70px;
+        height: 70px;
+    }
+
+    .header-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .main-content {
+        margin: 1.2rem auto 1.6rem;
+        padding: 0 0.6rem;
+    }
+
+    .user-switcher {
+        right: 8px;
+    }
+}
+/* =======================================
+   KHUSUS ADMIN PAGE (tidak mengganggu index)
+   ======================================= */
+
+.admin-page .main-content {
+    max-width: 1280px;
+    padding: 0 1.8rem 2rem;
+    align-items: flex-start;
+}
+
+/* di admin, aside tidak dipakai → sembunyikan */
+.admin-page aside {
+    display: none;
+}
+
+/* NAV kiri + SECTION kanan */
+@media (min-width: 900px) {
+    .admin-page nav {
+        flex: 0 0 23%;
+    }
+
+    .admin-page section {
+        flex: 0 0 77%;
+    }
+}
+
+/* kartu besar di dalam section admin */
+.admin-page section .page-content {
+    display: block;        /* selalu tampil, tidak pakai animasi tab */
+    opacity: 1;
+    transform: none;
+    padding: 1.4rem 1.6rem;
+}
+
+/* GRID FORM + TABEL */
+
+.admin-page .crud-grid {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* layar lebar: form sempit di kiri, tabel lebar di kanan */
+@media (min-width: 900px) {
+    .admin-page .crud-grid {
+        display: grid;
+        grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+        gap: 1.4rem;
+    }
+
+    .admin-page .crud-card {
+        height: 100%;
+    }
+}
+
+/* kartu form & tabel sedikit dirapikan */
+
+.admin-page .crud-card {
+    margin: 0;              /* buang margin ekstra */
+}
+
+.admin-page .crud-card h3 {
+    margin-bottom: 0.8rem;
+}
+
+.admin-page .crud-label {
+    font-size: 0.85rem;
+}
+
+.admin-page .crud-input {
+    margin-bottom: 0.25rem;
+}
+
+/* TABEL DATA */
+
+.admin-page .crud-table-wrapper {
+    width: 100%;
+}
+
+.admin-page .crud-table {
+    font-size: 0.82rem;
+}
+
+.admin-page .crud-table thead th {
+    white-space: nowrap;
+}
+
+.admin-page .crud-table td {
+    vertical-align: middle;
+}
+
+/* link Edit / Hapus */
+
+.admin-page .crud-link {
+    font-size: 0.8rem;
+}
+
+/* beri sedikit jarak bawah dari footer */
+
+.admin-page footer {
+    margin-top: 1.5rem;
+}
